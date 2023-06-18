@@ -32,8 +32,8 @@ package Types "containing type definitions"
 
   // Constant Strings defined as environtment variables in startup script (loadTransiEnt.mos)
   constant String WORKINGDIR = "workingdir";
-  constant String PUBLIC_DATA = "public-data";
-  constant String PRIVATE_DATA = "private-data";
+  constant String PUBLIC_DATA = "publicData";
+  constant String PRIVATE_DATA = "privateData";
   constant String STARTUP_SCRIPT = "startupscript";
 
 

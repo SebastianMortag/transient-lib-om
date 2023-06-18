@@ -44,7 +44,7 @@ model PipeFlow_L4_Simple_isoth "A 1D tube-shaped control volume considering one-
 
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.gasModel1 "Medium in the component" annotation (Dialog(group="Fundamental Definitions"));
   parameter Boolean constantComposition=simCenter.useConstCompInGasComp "true if composition of gas in the pipe is constant (xi_nom will be used)" annotation (Dialog(group="Fundamental Definitions"));
-  parameter Integer variableCompositionEntries[:](min=0,max=medium.nc)=simCenter.variableCompositionEntriesGasPipes "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
+  parameter Integer variableCompositionEntries[:](each min=0, each max=medium.nc)=simCenter.variableCompositionEntriesGasPipes "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
   parameter Integer massBalance=simCenter.massBalanceGasPipes "Mass balance and species balance fomulation" annotation (Dialog(group="Fundamental Definitions"), choices(
       choice=1 "ClaRa formulation",
       choice=2 "TransiEnt formulation 1a",
@@ -150,9 +150,9 @@ model PipeFlow_L4_Simple_isoth "A 1D tube-shaped control volume considering one-
     final contributeToCycleSummary=contributeToCycleSummary,
     final heatFlowIsLoss=heatFlowIsLoss,
     redeclare final model CostSpecsGeneral = CostSpecsGeneral,
-    h(stateSelect=StateSelect.never)) annotation (Placement(transformation(extent={{-14,-5},{14,5}})));
-  Modelica.Blocks.Sources.RealExpression[N_cv] realExpression(y=T_ground) annotation (Placement(transformation(extent={{-68,18},{-48,38}})));
-  Storage.Gas.Base.ConstantHTOuterTemperature_L2[N_cv] ht(alpha_nom=10e4, A_heat=1) annotation (Placement(transformation(
+    h(each stateSelect=StateSelect.never)) annotation (Placement(transformation(extent={{-14,-5},{14,5}})));
+  Modelica.Blocks.Sources.RealExpression[N_cv] realExpression(each y=T_ground) annotation (Placement(transformation(extent={{-68,18},{-48,38}})));
+  Storage.Gas.Base.ConstantHTOuterTemperature_L2[N_cv] ht(each alpha_nom=10e4, each A_heat=1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-22,28})));

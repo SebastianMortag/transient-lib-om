@@ -36,12 +36,6 @@ function getRealGasGCV_xi "Adaptive function for gross calorific value calculati
   // _____________________________________________
 
   extends TransiEnt.Basics.Icons.Function;
-  // _____________________________________________
-  //
-  //        Constants and Hidden Parameters
-  // _____________________________________________
-
-  parameter SI.SpecificEnthalpy[realGasType.nc] GCV_vec=getRealGasGCVVector(realGasType,realGasType.nc);
 
   // _____________________________________________
   //
@@ -55,6 +49,11 @@ public
   output SI.SpecificEnthalpy GCVOut "Returned GCV";
 
 protected
+  // _____________________________________________
+  //
+  //        Constants and Hidden Parameters
+  // _____________________________________________
+  parameter SI.SpecificEnthalpy[realGasType.nc] GCV_vec=getRealGasGCVVector(realGasType,realGasType.nc);
   SI.MassFraction[realGasType.nc] xi=cat(1,xi_in,{1-sum(xi_in)}) "Mass weighted composition of components per kg fuel";
 
 algorithm
@@ -68,7 +67,7 @@ algorithm
     GCVOut:=GCVIn;
   else
     //Search for component in GCVComponentValues and add it to total GCV = sum(xi_i * GCV_i)
-    GCVOut:=sum(xi*GCV_vec);
+    GCVOut:=(xi*GCV_vec);
   end if;
 
   annotation (Documentation(info="<html>

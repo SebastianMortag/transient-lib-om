@@ -64,8 +64,8 @@ model CompositionSensorDryGas "One Port VLE Composition Sensor"
   // _____________________________________________
 
   Modelica.Blocks.Interfaces.RealOutput fractionDry[medium.nc](
-    final quantity=if compositionDefinedBy == 1 then "MassFraction" else "MoleFraction",
-    final unit=if compositionDefinedBy == 1 then "kg/kg" else "mol/mol") "Fraction (mass or mole) of the dry gas in port"
+    each final quantity=if compositionDefinedBy == 1 then "MassFraction" else "MoleFraction",
+    each final unit=if compositionDefinedBy == 1 then "kg/kg" else "mol/mol") "Fraction (mass or mole) of the dry gas in port"
     annotation (Placement(transformation(extent={{44,60},{64,80}},  rotation=
            0), iconTransformation(extent={{100,-10},{120,10}})));
 

@@ -136,7 +136,7 @@ protected
   Modelica.Blocks.Sources.RealExpression T_amb(y=T_surrounding)       annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4 cylindricalWall(
     redeclare model Material = MaterialWall,
-    T_start(displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
+    T_start(each displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
     stateLocation=stateLocation,
     N_ax=1,
     diameter_o=storage.diameter + thickness_wall,

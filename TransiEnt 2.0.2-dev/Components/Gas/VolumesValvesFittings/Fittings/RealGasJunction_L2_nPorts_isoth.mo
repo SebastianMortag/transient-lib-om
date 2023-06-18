@@ -55,11 +55,11 @@ model RealGasJunction_L2_nPorts_isoth "Isothermal volume junction with n ports f
   parameter ClaRa.Basics.Units.Volume volume=0.1 "Volume of the junction" annotation (Dialog(group="Fundamental Definitions"));
   parameter Boolean constantComposition=simCenter.useConstCompInGasComp "Use simplified equation for constant composition (xi_nom will be used)" annotation (Dialog(group="Fundamental Definitions"));
   parameter SI.MassFraction xi_nom[medium.nc - 1] = medium.xi_default "Constant composition" annotation (Dialog(group="Fundamental Definitions",enable=constantComposition));
-  parameter Integer variableCompositionEntries[:](min=0,max=medium.nc)=simCenter.variableCompositionEntriesGasPipes
+  parameter Integer variableCompositionEntries[:](each min=0,each max=medium.nc)=simCenter.variableCompositionEntriesGasPipes
                                                                            "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
   parameter Integer massBalance=simCenter.massBalanceGasPipes "Mass balance and species balance fomulation" annotation(Dialog(group="Fundamental Definitions"),choices(choice=1 "Dynamic", choice=4 "Quasi stationary"));
   parameter Modelica.Units.SI.MassFlowRate m_flow_nom[n_ports]=ones(n_ports)*10 "Nominal mass flow rate" annotation (Dialog(group="Fundamental Definitions"));
-  parameter Modelica.Units.SI.PressureDifference Delta_p_nom[n_ports](displayUnit="Pa") = zeros(n_ports) "Nominal pressure loss at m_flow_nom" annotation (Dialog(group="Fundamental Definitions"));
+  parameter Modelica.Units.SI.PressureDifference Delta_p_nom[n_ports](each displayUnit="Pa") = zeros(n_ports) "Nominal pressure loss at m_flow_nom" annotation (Dialog(group="Fundamental Definitions"));
   parameter ClaRa.Basics.Units.Pressure p_start=simCenter.p_amb_const + simCenter.p_eff_2 "Initial value for gas pressure" annotation (Dialog(group="Initial Values"));
   parameter ClaRa.Basics.Units.EnthalpyMassSpecific h_start=TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.specificEnthalpy_pTxi(
       medium,

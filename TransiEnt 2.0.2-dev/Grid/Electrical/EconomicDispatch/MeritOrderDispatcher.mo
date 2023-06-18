@@ -70,7 +70,7 @@ model MeritOrderDispatcher "Forward-looking control, min, max and gradient const
   // _____________________________________________
 
   Modelica.Blocks.Interfaces.RealInput u[ntime] "Load Prediction" annotation (Placement(transformation(extent={{-140,-20},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealOutput y[nout](start=P_init, fixed=true) annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+  Modelica.Blocks.Interfaces.RealOutput y[nout](start=P_init, each fixed=true) annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   Modelica.Blocks.Interfaces.BooleanInput z[nout] "Plant status (true=on)" annotation (Placement(transformation(extent={{20,-20},{-20,20}},        rotation=270,
         origin={0,-120}),                                                                                                   iconTransformation(
         extent={{20,-20},{-20,20}},
@@ -112,8 +112,8 @@ model MeritOrderDispatcher "Forward-looking control, min, max and gradient const
   Modelica.Units.SI.Power P_min_total;
   Modelica.Units.SI.Power P_init_total=sum(P_init);
 
-  Modelica.Units.SI.Power P_max[nout](start=P_max_const, fixed=true);
-  Modelica.Units.SI.Power P_min[nout](start=P_min_const, fixed=true);
+  Modelica.Units.SI.Power P_max[nout](start=P_max_const, each fixed=true);
+  Modelica.Units.SI.Power P_min[nout](start=P_min_const, each fixed=true);
   Modelica.Units.SI.Power P_max_var[nVarLimits]=P_max[iVarLimits] annotation (Dialog(enable=useVarLimits, tab="Time varying operating boundaries"));
   Modelica.Units.SI.Power P_min_var[nVarLimits]=P_min[iVarLimits] annotation (Dialog(enable=useVarLimits, tab="Time varying operating boundaries"));
   Modelica.Units.SI.Power P_min_var_total=sum(P_min_var);

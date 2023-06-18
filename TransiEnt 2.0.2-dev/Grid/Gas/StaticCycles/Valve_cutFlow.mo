@@ -42,7 +42,7 @@ model Valve_cutFlow "Valve || yellow | red"
   final parameter SI.SpecificEnthalpy h_in(fixed=false) "Inlet specific enthalpy";
   final parameter SI.SpecificEnthalpy h_out=h_in "Outlet specific enthalpy";
   final parameter SI.Pressure Delta_p=p_in-p_out "Pressure difference";
-  final parameter SI.MassFraction xi_in[medium.nc-1](fixed=false) "Inlet mass specific composition";
+  final parameter SI.MassFraction xi_in[medium.nc-1](each fixed=false) "Inlet mass specific composition";
   final parameter SI.MassFraction xi_out[medium.nc-1]=xi_in "Outlet mass specific composition";
 
   TransiEnt.Grid.Gas.StaticCycles.Base.FluidSignal_yellow inlet(Medium=medium, m_flow=m_flow) annotation (Placement(transformation(

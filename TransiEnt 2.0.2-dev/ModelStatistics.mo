@@ -37,7 +37,7 @@ model ModelStatistics
   //              Final parameters
   // _____________________________________________
 
-  final parameter Integer nTypesOfResource=TransiEnt.Basics.Types.nTypeOfResource annotation (HideResult=true);
+  final constant Integer nTypesOfResource=TransiEnt.Basics.Types.nTypeOfResource annotation (HideResult=true);
 
   final parameter Integer nSubgrids=2 "For calculation of statistics in subgrids (=1 local grid, e.g. hamburg, =2 surrounding grid, e.g. UCTE grid"
                                                                                               annotation(HideResult=true);

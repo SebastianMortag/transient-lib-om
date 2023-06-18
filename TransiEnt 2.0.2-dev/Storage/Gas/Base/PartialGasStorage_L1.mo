@@ -98,13 +98,13 @@ equation
   xi_in=cat(1,noEvent(actualStream(gasPortIn.xi_outflow)),{1-sum(noEvent(actualStream(gasPortIn.xi_outflow)))});
   xi_out=cat(1,noEvent(actualStream(gasPortOut.xi_outflow)),{1-sum(noEvent(actualStream(gasPortOut.xi_outflow)))});
 
-  H_flow_in_NCV=gasPortIn.m_flow*sum(NCV*xi_in);
-  H_flow_out_NCV=gasPortOut.m_flow*sum(NCV*xi_out);
-  H_gas_NCV=m_gas*sum(NCV*cat(1,xi_gas,{1-sum(xi_gas)}));
+  H_flow_in_NCV=gasPortIn.m_flow*(NCV*xi_in);
+  H_flow_out_NCV=gasPortOut.m_flow*(NCV*xi_out);
+  H_gas_NCV=m_gas*(NCV*cat(1,xi_gas,{1-sum(xi_gas)}));
 
-  H_flow_in_GCV=gasPortIn.m_flow*sum(GCV*xi_in);
-  H_flow_out_GCV=gasPortOut.m_flow*sum(GCV*xi_out);
-  H_gas_GCV=m_gas*sum(GCV*cat(1,xi_gas,{1-sum(xi_gas)}));
+  H_flow_in_GCV=gasPortIn.m_flow*(GCV*xi_in);
+  H_flow_out_GCV=gasPortOut.m_flow*(GCV*xi_out);
+  H_gas_GCV=m_gas*(GCV*cat(1,xi_gas,{1-sum(xi_gas)}));
 
   // _____________________________________________
   //

@@ -174,7 +174,7 @@ protected
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=T_surrounding) annotation (Placement(transformation(extent={{74,-10},{54,10}})));
   ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4 cylindricalWall(
     redeclare model Material = Material,
-    T_start(displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
+    T_start(each displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
     stateLocation=stateLocation,
     N_ax=1,
     diameter_o=storage.diameter + thickness_wall,

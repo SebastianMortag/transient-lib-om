@@ -57,15 +57,15 @@ model DoublePipePair_L2 "Model of two parallel district heating pipes at same le
 
   parameter Modelica.Units.SI.Length diameter_i=simCenter.DNmat[TransiEnt.Basics.Functions.getIndex(
       DN,
-      simCenter.DHN_Pipe_Manufacturer.rowAmount,
+      simCenter.dhn_pipe_manufacturer.rowAmount,
       simCenter.DNmat), 2] "Inner Diameter of the pipe" annotation (Dialog(group="Geometry", enable=no_DN_Table));
   parameter Modelica.Units.SI.Length diameter_o=simCenter.DNmat[TransiEnt.Basics.Functions.getIndex(
       DN,
-      simCenter.DHN_Pipe_Manufacturer.rowAmount,
+      simCenter.dhn_pipe_manufacturer.rowAmount,
       simCenter.DNmat), 3] "Outer Diameter of the pipe" annotation (Dialog(group="Geometry", enable=no_DN_Table));
   parameter Modelica.Units.SI.Length pipe_wall_thickness=simCenter.DNmat[TransiEnt.Basics.Functions.getIndex(
       DN,
-      simCenter.DHN_Pipe_Manufacturer.rowAmount,
+      simCenter.dhn_pipe_manufacturer.rowAmount,
       simCenter.DNmat), 4] "Pipe Wall Thickness" annotation (Dialog(group="Geometry", enable=no_DN_Table));
   parameter Modelica.Units.SI.Length K=simCenter.K "average height of surface asperities" annotation (Dialog(group="Geometry", enable=no_DN_Table));
 

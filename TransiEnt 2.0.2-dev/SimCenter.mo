@@ -157,8 +157,9 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
 
   replaceable model DHN_Pipe_Manufacturer = TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes.DN_IsoPlus
     constrainedby TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes.DN_table_base
-                                                                                                "Type of DN-Data to be used" annotation(choicesAllMatching=true,Dialog(tab="District Heating Grid", group="Pipe Data"));
- final parameter Real DNmat[:,:] = DHN_Pipe_Manufacturer.DNmat;
+                                                                                               "Type of DN-Data to be used" annotation(choicesAllMatching=true,Dialog(tab="District Heating Grid", group="Pipe Data"));
+  DHN_Pipe_Manufacturer dhn_pipe_manufacturer;                                                                                               
+  final parameter Real DNmat[:,:] = dhn_pipe_manufacturer.DNmat;
 
   // ==== Gas grid ====
 
@@ -189,7 +190,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
       choice=1 "ClaRa formulation",
       choice=2 "TransiEnt formulation 1a",
       choice=3 "TransiEnt formulation 1b"));
-  parameter Integer variableCompositionEntriesGasPipes[:](min=0)={0} "Entries of medium vector in gas pipes which are supposed to be completely variable" annotation(Dialog(tab="Gas Grid",group="Parameters",enable=not useConstCompInGasComp));
+  parameter Integer variableCompositionEntriesGasPipes[:](each min=0)={0} "Entries of medium vector in gas pipes which are supposed to be completely variable" annotation(Dialog(tab="Gas Grid",group="Parameters",enable=not useConstCompInGasComp));
 
   parameter SI.Height roughnessGasPipes=0.1e-3 "Absolute roughness of gas pipes" annotation (Dialog(tab="Gas Grid", group="Parameters"));
 
@@ -385,7 +386,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_global=ambientConditions.globalSolarRadiation.value "Global solar radiation (from component ambientConditions)";
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_direct=ambientConditions.directSolarRadiation.value "Direct solar radiation (from component ambientConditions)";
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_diffuse=ambientConditions.diffuseSolarRadiation.value "Diffuse solar radiation (from component ambientConditions)";
-  Modelica.Blocks.Interfaces.RealOutput T_ground_var(value=if variable_T_ground then Variable_Ground_Temperature.value else T_ground)  "Diffuse solar radiation (from component ambientConditions)";
+  Modelica.Blocks.Interfaces.RealOutput T_ground_var = if variable_T_ground then Variable_Ground_Temperature.value else T_ground  "Diffuse solar radiation (from component ambientConditions)";
 
    annotation ( defaultComponentName="simCenter",
     defaultComponentPrefixes="inner",

@@ -46,7 +46,7 @@ model Pipe_blue " Pipe || blue | blue"
   final parameter SI.Pressure p_in( fixed=false) "Inlet pressure";
   final parameter SI.Pressure p_out( fixed=false) "pressure at tube inlet";
   final parameter SI.SpecificEnthalpy h_in(fixed=false) "enthalpy at tube inlet";
-  final parameter SI.MassFraction xi_in[medium.nc-1](fixed=false) "Inlet Mass Fraction";
+  final parameter SI.MassFraction xi_in[medium.nc-1](each fixed=false) "Inlet Mass Fraction";
 
   final parameter Real zeta_tot = if quadraticPressureLoss then Delta_p_nom/m_flow_nom^2 else 1.0*Delta_p_nom/m_flow_nom "Linear/quadratic pressure loss coefficient";
   final parameter SI.PressureDifference Delta_p_tot = if quadraticPressureLoss then zeta_tot*m_flow^2 else zeta_tot*m_flow "Pressure drop by quadratic/linear coefficient";

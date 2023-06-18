@@ -43,7 +43,7 @@ function getIdealGasGCV_xM "Adaptive function for gross calorific value calculat
   //
   //        Constants and Hidden Parameters
   // _____________________________________________
-
+protected
   parameter Real[idealGasType.nc] GCVm_vec=getIdealGasGCVmVector(idealGasType);
 
   // _____________________________________________
@@ -72,7 +72,7 @@ algorithm
     GCVOut:=GCVIn;
   else
     //Search for component in GCVComponentValues and add it to total GCV weighted by molefraction
-    GCVOut:=sum(x*GCVm_vec);
+    GCVOut:=(x*GCVm_vec);
   end if;
 
 protected

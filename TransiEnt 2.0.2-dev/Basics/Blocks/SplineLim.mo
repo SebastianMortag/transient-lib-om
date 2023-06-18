@@ -55,8 +55,8 @@ extends Modelica.Blocks.Interfaces.SISO;
 protected
   final parameter Real dya=0;
   final parameter Real dyb=1;
-  parameter Real[4] coef1(fixed=false);
-  parameter Real[4] coef2(fixed=false);
+  parameter Real[4] coef1(each fixed=false);
+  parameter Real[4] coef2(each fixed=false);
 
   // _____________________________________________
   //

@@ -324,15 +324,15 @@ equation
   xi_out=cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])});
   xi_in=cat(1,gasIn.xi,{1-sum(gasIn.xi)});
 
-  H_flow_in_NCV=gasPortIn.m_flow*sum(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_NCV=gasPortOut.m_flow*sum(NCV*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
+  H_flow_in_NCV=gasPortIn.m_flow*(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_NCV=gasPortOut.m_flow*(NCV*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
   eta_NCV=-H_flow_out_NCV/(max(0.001,H_flow_in_NCV));
 
-  H_flow_in_GCV=gasPortIn.m_flow*sum(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_GCV=gasPortOut.m_flow*sum(GCV*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
+  H_flow_in_GCV=gasPortIn.m_flow*(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_GCV=gasPortOut.m_flow*(GCV*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
   eta_GCV=-H_flow_out_GCV/(max(0.001,H_flow_in_GCV));
 
-  H_flow_out_GCV_woWater=gasPortOut.m_flow*sum({GCV[1],GCV[2],0,GCV[4]}*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
+  H_flow_out_GCV_woWater=gasPortOut.m_flow*({GCV[1],GCV[2],0,GCV[4]}*cat(1,xi[N_cv,:],{1-sum(xi[N_cv,:])}));
   eta_GCV_woWater=-H_flow_out_GCV_woWater/(max(0.001,H_flow_in_GCV));
 
   // _____________________________________________

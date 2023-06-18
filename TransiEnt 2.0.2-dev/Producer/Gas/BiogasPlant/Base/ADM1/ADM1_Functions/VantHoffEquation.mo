@@ -53,7 +53,7 @@ function VantHoffEquation "applies the van't Hoff Equation to a temperature-sens
   //
   //        Constants and Hidden Parameters
   // _____________________________________________
-
+protected
   final parameter Modelica.Units.SI.Temperature T_ref=298.15 "Reference Temperature for equilibrium constant";
   // ADM1 default value is 298
 

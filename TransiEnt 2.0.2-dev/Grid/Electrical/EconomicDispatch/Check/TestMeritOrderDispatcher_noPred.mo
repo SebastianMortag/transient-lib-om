@@ -32,7 +32,7 @@ model TestMeritOrderDispatcher_noPred
 
   MeritOrderDispatcher mod(
     startTime=60,
-    P_init(displayUnit="W") = {0.2e9,2.3e9},
+    P_init(each displayUnit="W") = {0.2e9,2.3e9},
     ntime=1,
     samplePeriod=60)                                          annotation (Placement(transformation(extent={{4,-12},{28,14}})));
   Basics.Blocks.Sources.BooleanArrayConstant operatingStatus(nout=mod.nout) annotation (Placement(transformation(extent={{-22,-48},{-2,-28}})));

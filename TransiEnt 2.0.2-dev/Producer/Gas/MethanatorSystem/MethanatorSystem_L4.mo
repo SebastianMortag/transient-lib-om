@@ -309,10 +309,10 @@ equation
   Q_flow=-(H_flow_in_GCV+H_flow_out_GCV)-Q_loss;
   m_flow_n_Hydrogen_is=methanator.H_flow_n_methanation_H2/methanator.NCV[4];
 
-  H_flow_in_NCV=gasPortIn.m_flow*sum(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_NCV=gasPortOut.m_flow*sum(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
-  H_flow_in_GCV=gasPortIn.m_flow*sum(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_GCV=gasPortOut.m_flow*sum(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_flow_in_NCV=gasPortIn.m_flow*(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_NCV=gasPortOut.m_flow*(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_flow_in_GCV=gasPortIn.m_flow*(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_GCV=gasPortOut.m_flow*(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
 
   x_H2=(1-sum(junction.gasPort3.xi_outflow))/rho_H2*junction.summary.gasPort3.rho;
 

@@ -42,6 +42,7 @@ function getIdealGasNCV_xM "Adaptive function for net calorific value calculatio
   //        Constants and Hidden Parameters
   // _____________________________________________
 
+protected
   parameter Real[idealGasType.nc] NCVm_vec=getIdealGasNCVmVector(idealGasType);
 
   // _____________________________________________
@@ -70,7 +71,7 @@ algorithm
     NCVOut:=NCVIn;
   else
     //Search for component in NCVComponentValues and add it to total NCV weighted by molefraction
-    NCVOut:=sum(x*NCVm_vec);
+    NCVOut:=(x*NCVm_vec);
   end if;
 
 protected

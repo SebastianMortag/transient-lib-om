@@ -44,9 +44,9 @@ record IComPackedBedControlVolume_L4
   //              Visible Parameters
   // _____________________________________________
 
-  outer parameter ClaRa.Basics.Units.Length d_v_m = 0.03  "Mean volume-equivalent particle diameter";
-  outer parameter Real porosity = 0.5 "Porosity";
-  outer parameter Real sphericity = 0.8 "Mean sphericity";
+  outer parameter ClaRa.Basics.Units.Length d_v_m  "Mean volume-equivalent particle diameter";
+  outer parameter Real porosity "Porosity";
+  outer parameter Real sphericity "Mean sphericity";
   final parameter Real surfacePerVolume = 6*(1-porosity)/(sphericity*d_v_m) "Particle surface per packed-bed volume";
   final parameter ClaRa.Basics.Units.Length d_h = 4*porosity/surfacePerVolume "Hydraulic diameter";
   final parameter ClaRa.Basics.Units.Length d_SM = 6*(1-porosity)/surfacePerVolume "Sauter mean diameter";

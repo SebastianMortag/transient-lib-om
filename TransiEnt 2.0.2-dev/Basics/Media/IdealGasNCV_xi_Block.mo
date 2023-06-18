@@ -75,7 +75,7 @@ equation
     NCV= NCVIn;
   else
     //Search for component in NCVComponentValues and add it to total NCV = sum(xi_i * NCV_i) and from (MJ/kg) to (J/kg) NCV
-    NCV=sum(xi*NCV_vec);
+    NCV=(xi*NCV_vec);
   end if;
 
   annotation (Documentation(info="<html>

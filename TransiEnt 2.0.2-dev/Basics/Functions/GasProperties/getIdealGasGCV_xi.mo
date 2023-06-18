@@ -40,7 +40,7 @@ function getIdealGasGCV_xi "Adaptive function for gross calorific value calculat
   //
   //        Constants and Hidden Parameters
   // _____________________________________________
-
+protected
   parameter SI.SpecificEnthalpy[idealGasType.nc] GCV_vec=getIdealGasGCVVector(idealGasType);
 
   // _____________________________________________
@@ -68,7 +68,7 @@ algorithm
     GCVOut:=GCVIn;
   else
     //Search for component in GCVComponentValues and add it to total GCV = sum(xi_i * GCV_i)
-    GCVOut:=sum(xi*GCV_vec);
+    GCVOut:=(xi*GCV_vec);
   end if;
 
 protected

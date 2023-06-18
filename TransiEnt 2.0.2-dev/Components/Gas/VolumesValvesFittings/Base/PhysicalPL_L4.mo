@@ -77,7 +77,7 @@ model PhysicalPL_L4 "Physical pressure loss model"
   parameter Modelica.Units.SI.MassFraction xi_nom[iCom.mediumModel.nc - 1]=iCom.xi_nom "Nominal composition for viscosity calculation" annotation (Dialog(group="Viscosity"));
   parameter Modelica.Units.SI.DynamicViscosity eta_const=coeff_visc[1] + coeff_visc[2]*p_nom + coeff_visc[3]*T_const + sum({coeff_visc[3 + j]*xi_nom for j in 1:iCom.mediumModel.nc - 1}) "Constant dynamic viscosity" annotation (Dialog(group="Viscosity", enable=not useViscCorr));
 
-  parameter Integer numberOfMFlowDist[:](min=0,max=iCom.N_cv+1)={0} "0 for no disturbance, otherwise give number (1...N_cv+1)" annotation(Dialog(group="Disturbance"));
+  parameter Integer numberOfMFlowDist[:](each min=0, each max=iCom.N_cv+1)={0} "0 for no disturbance, otherwise give number (1...N_cv+1)" annotation(Dialog(group="Disturbance"));
   parameter Modelica.Units.SI.Time t_dist_start = 1e10 "Start time of disturbance" annotation(Dialog(group="Disturbance",enable=numberOfMFlowDist[1]<>0));
   parameter Modelica.Units.SI.Time t_dist_end = t_dist_start+1 "End time of disturbance" annotation(Dialog(group="Disturbance",enable=numberOfMFlowDist[1]<>0));
 
@@ -95,7 +95,7 @@ model PhysicalPL_L4 "Physical pressure loss model"
 
   Modelica.Units.SI.Density rho[iCom.N_cv + 1] "Density";
   Modelica.Units.SI.DynamicViscosity eta[iCom.N_cv + 1] "Dynamic Viscosity";
-  Modelica.Units.SI.MassFlowRate m_flow_1[iCom.N_cv + 1](stateSelect=StateSelect.avoid) "Mass flow rate in one tube";
+  Modelica.Units.SI.MassFlowRate m_flow_1[iCom.N_cv + 1](each stateSelect=StateSelect.avoid) "Mass flow rate in one tube";
 
   Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor lambda_FRI_calc_switch[iCom.N_cv + 1] "Adapted Darcy friction factor";
   SI.ReynoldsNumber Re_switch[iCom.N_cv + 1] "Reynolds number assuming turbulent regime";

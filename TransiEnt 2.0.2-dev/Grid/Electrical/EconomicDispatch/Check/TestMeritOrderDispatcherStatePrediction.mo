@@ -35,7 +35,7 @@ model TestMeritOrderDispatcherStatePrediction
     startTime=60,
     ntime=discretizePrediction.ntime,
     samplePeriod=discretizePrediction.samplePeriod,
-    P_init(displayUnit="W") = simCenter.generationPark.P_max) annotation (Placement(transformation(extent={{4,-12},{28,14}})));
+    P_init(each displayUnit="W") = simCenter.generationPark.P_max) annotation (Placement(transformation(extent={{4,-12},{28,14}})));
   DiscretizePrediction discretizePrediction(t_shift=0, samplePeriod=900)
                                                        annotation (Placement(transformation(extent={{-32,-10},{-12,10}})));
   inner SimCenter simCenter(redeclare Base.EmptyGenerationPark generationPark(

@@ -42,7 +42,7 @@ model Split "Split || yellow | yellow | yellow"
 
   final parameter SI.SpecificEnthalpy h_in(fixed=false) "Inlet specific enthalpy";
   final parameter SI.Pressure p(fixed=false) "Mixer pressure";
-  final parameter SI.MassFraction xi_in[medium.nc-1](fixed=false) "Inlet mass specific composition";
+  final parameter SI.MassFraction xi_in[medium.nc-1](each fixed=false) "Inlet mass specific composition";
 
   TransiEnt.Grid.Gas.StaticCycles.Base.FluidSignal_yellow inlet(Medium=medium, m_flow=m_flow_in) annotation (Placement(transformation(
         extent={{-4,-10},{4,10}},

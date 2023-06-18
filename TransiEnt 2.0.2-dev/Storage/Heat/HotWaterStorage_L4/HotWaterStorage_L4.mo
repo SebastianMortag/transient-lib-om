@@ -364,7 +364,7 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
   parameter SI.Pressure p_nom=1e5 "Nominal pressure of fluid in tank";
   parameter SI.SpecificEnthalpy h_nom=1e5 "Nominal specific enthalpy of fluid in tank";
 algorithm
-   storedEnergie := sum(Tank_Volume.h*Tank_Volume.m)-h_ref*sum(Tank_Volume.m);
+   storedEnergie := (Tank_Volume.h*Tank_Volume.m)-h_ref*sum(Tank_Volume.m);
    maxTemperature := max(Tank_Volume.T);
    minTemperature := min(Tank_Volume.T);
    averageTemperature := (Tank_Volume.T*Tank_Volume.m)/sum(Tank_Volume.m);

@@ -101,7 +101,7 @@ public
     "Nominal Active Power, use 50 (Hz) for not normalized variabilities Use P_el_set_const for normalized values.";
   parameter SI.ReactivePower Q_n=50
     "Nominal Reactive Power, use 50 (Hz) for not normalized variabilities. Use Q_el_set for normalized values.";
-  replaceable TransiEnt.Consumer.Electrical.Characteristics.Constant
+  replaceable parameter TransiEnt.Consumer.Electrical.Characteristics.Constant
     variability constrainedby TransiEnt.Consumer.Electrical.Characteristics.PartialConsumerData
     "Consumer characteristic" annotation (choicesAllMatching=true);
 

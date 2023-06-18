@@ -41,8 +41,8 @@ model Adapter_H2toNG "AdapterH2NG || yellow | red"
 
   final parameter SI.SpecificEnthalpy h_in(fixed=false) "Inlet specific enthalpy";
   final parameter SI.SpecificEnthalpy h_out(fixed=false) "Outlet specific enthalpy";
-  final parameter SI.MassFraction xi_in[mediumIn.nc-1](fixed=false) "Inlet mass specific composition";
-  final parameter SI.MassFraction xi_out[mediumOut.nc-1](fixed=false) "Outlet mass specific composition";
+  final parameter SI.MassFraction xi_in[mediumIn.nc-1](each fixed=false) "Inlet mass specific composition";
+  final parameter SI.MassFraction xi_out[mediumOut.nc-1](each fixed=false) "Outlet mass specific composition";
 
   TransiEnt.Grid.Gas.StaticCycles.Base.FluidSignal_blue inlet(Medium=mediumIn, p=p) annotation (Placement(transformation(
         extent={{-6,-15},{6,15}},

@@ -49,7 +49,7 @@ model GasStorage_varXi_L1 "L1: Model of a simple gas storage volume for variable
   //             Visible Parameters
   // _____________________________________________
 
-  parameter Integer variableCompositionEntries[:](min=0,max=medium.nc)={0} "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
+  parameter Integer variableCompositionEntries[:](each min=0,each max=medium.nc)={0} "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
   parameter SI.MassFraction xi_nom[medium.nc - 1] = medium.xi_default "Constant composition" annotation (Dialog(group="Fundamental Definitions",enable=constantComposition or variableCompositionEntries[1] <> 0));
   parameter SI.MassFraction xi_gas_start[medium.nc-1]=medium.xi_default "Initial composition in the storage" annotation(Dialog(group="Initialization"));
 

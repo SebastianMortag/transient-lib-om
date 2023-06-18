@@ -38,7 +38,7 @@ model Sink_yellow "Yellow boundary"
 
   final parameter SI.SpecificEnthalpy h(fixed = false) "Specific enthalpy at source";
   final parameter SI.Pressure p(fixed =  false) "Pressure at source";
-  final parameter SI.MassFraction xi[medium.nc-1](fixed=false) "Mass specific composition at source";
+  final parameter SI.MassFraction xi[medium.nc-1](each fixed=false) "Mass specific composition at source";
 
   TransiEnt.Grid.Gas.StaticCycles.Base.FluidSignal_yellow inlet(Medium=medium, m_flow=m_flow) annotation (Placement(transformation(
         extent={{-4,-10},{4,10}},

@@ -65,7 +65,7 @@ partial model PartialHeatPumpSystemModel "Partial model of a controlled heat pum
   SI.Power P_pot_neg = P_el_n - P_el;
   SI.Power P_el_star = P_el / P_el_n;
   Real SOC[nStor];
-  Real SOC_tot = sum(SOC*E_stor)/max(sum(E_stor),simCenter.E_small);
+  Real SOC_tot = (SOC*E_stor)/max(sum(E_stor),simCenter.E_small);
 
   Real COP = Q_flow_max / P_el_n "COP if both producer would be turned on. P_el_n is fix, but Q_flow_max changes with ambient temperature";
   SI.Time t_pos_max = E_stor_total*SOC_tot / Q_flow_demand;

@@ -119,7 +119,7 @@ public
  //____Numerics_________________________________________________________________________________________
 public
  parameter Boolean constantComposition=simCenter.useConstCompInGasComp "true if composition of gas in the pipe is constant (xi_nom will be used)" annotation(Dialog(group="Fundamental Definitions"));
- parameter Integer variableCompositionEntries[:](min=0,max=medium.nc)={0} "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
+ parameter Integer variableCompositionEntries[:](each min=0, each max=medium.nc)={0} "Entries of medium vector which are supposed to be completely variable" annotation(Dialog(group="Fundamental Definitions",enable=not constantComposition));
  final parameter Integer dependentCompositionEntries[:]=if variableCompositionEntries[1] == 0 then 1:medium.nc else findSetDifference(1:medium.nc, variableCompositionEntries) "Entries of medium vector which are supposed to be dependent on the variable entries";
  parameter Integer massBalance=1 "Mass balance and species balance fomulation" annotation(Dialog(group="Fundamental Definitions"),choices(choice=1 "ClaRa formulation", choice=2 "TransiEnt formulation 1a", choice=3 "TransiEnt formulation 1b", choice=4 "Quasi stationary"));
  parameter SI.Pressure p_min_assert=0 "Minimum pressure in component and ports below which the simulation terminates" annotation(Dialog(group="Fundamental Definitions"));

@@ -34,7 +34,7 @@ model TestMeritOrderDispatcher
     startTime=60,
     ntime=discretizePrediction.ntime,
     samplePeriod=discretizePrediction.samplePeriod,
-    P_init(displayUnit="W") = {0.2e9,2.3e9})                  annotation (Placement(transformation(extent={{4,-12},{28,14}})));
+    P_init(each displayUnit="W") = {0.2e9,2.3e9})                  annotation (Placement(transformation(extent={{4,-12},{28,14}})));
   DiscretizePrediction discretizePrediction(t_shift=0) annotation (Placement(transformation(extent={{-32,-10},{-12,10}})));
   Basics.Blocks.Sources.BooleanArrayConstant operatingStatus(nout=mod.nout) annotation (Placement(transformation(extent={{-22,-48},{-2,-28}})));
   inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-78,100},{-58,80}})));

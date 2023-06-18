@@ -41,6 +41,7 @@ function getIdealGasNCV_xi "Adaptive function for net calorific value calculatio
   //        Constants and Hidden Parameters
   // _____________________________________________
 
+protected
   parameter SI.SpecificEnthalpy[idealGasType.nc] NCV_vec=getIdealGasNCVVector(idealGasType);
 
   // _____________________________________________
@@ -68,7 +69,7 @@ algorithm
     NCVOut:=NCVIn;
   else
     //Search for component in NCVComponentValues and add it to total NCV = sum(xi_i * NCV_i)
-    NCVOut:=sum(xi*NCV_vec);
+    NCVOut:=(xi*NCV_vec);
   end if;
 
 protected

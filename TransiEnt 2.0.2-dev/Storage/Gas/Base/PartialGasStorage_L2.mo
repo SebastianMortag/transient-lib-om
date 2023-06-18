@@ -158,13 +158,13 @@ equation
 
   heatTransfer.T_outer=gasBulk.T;
 
-  H_flow_in_NCV=gasPortIn.m_flow*sum(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_NCV=gasPortOut.m_flow*sum(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
-  H_gas_NCV=m_gas*sum(NCV*cat(1,gasBulk.xi,{1-sum(gasBulk.xi)}));
+  H_flow_in_NCV=gasPortIn.m_flow*(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_NCV=gasPortOut.m_flow*(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_gas_NCV=m_gas*(NCV*cat(1,gasBulk.xi,{1-sum(gasBulk.xi)}));
 
-  H_flow_in_GCV=gasPortIn.m_flow*sum(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_GCV=gasPortOut.m_flow*sum(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
-  H_gas_GCV=m_gas*sum(GCV*cat(1,gasBulk.xi,{1-sum(gasBulk.xi)}));
+  H_flow_in_GCV=gasPortIn.m_flow*(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_GCV=gasPortOut.m_flow*(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_gas_GCV=m_gas*(GCV*cat(1,gasBulk.xi,{1-sum(gasBulk.xi)}));
 
   // _____________________________________________
   //

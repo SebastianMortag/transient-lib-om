@@ -107,7 +107,7 @@ public
   parameter Boolean integrateElPower=simCenter.integrateElPower
     "true if electric powers shall be integrated"
     annotation (Dialog(group="Statistics"));
-  replaceable TransiEnt.Consumer.Electrical.Characteristics.Constant
+  replaceable parameter TransiEnt.Consumer.Electrical.Characteristics.Constant
     variability constrainedby TransiEnt.Consumer.Electrical.Characteristics.PartialConsumerData
     "Consumer characteristic" annotation (choicesAllMatching=true);
 

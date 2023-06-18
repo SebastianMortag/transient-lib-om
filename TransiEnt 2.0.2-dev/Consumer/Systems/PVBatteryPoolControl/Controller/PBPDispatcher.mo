@@ -63,7 +63,7 @@ model PBPDispatcher "Assigns bandwiths to primary balancing providers"
   //               Variables
   // _____________________________________________
 
-  Integer[nout] merit_order(start=1:nout, fixed=true) "Preferred order of PBP allocation";
+  Integer[nout] merit_order(start=1:nout, each fixed=true) "Preferred order of PBP allocation";
   SI.Power P_missing "Not yet assigned PBP power (recalculated in every iteration)";
 
 algorithm

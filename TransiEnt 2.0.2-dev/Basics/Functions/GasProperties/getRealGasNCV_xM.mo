@@ -36,14 +36,6 @@ function getRealGasNCV_xM "Adaptive function for net calorific value calculation
   // _____________________________________________
 
   extends TransiEnt.Basics.Icons.Function;
-
-  // _____________________________________________
-  //
-  //        Constants and Hidden Parameters
-  // _____________________________________________
-
-  parameter Real[realGasType.nc] NCVm_vec=getRealGasNCVmVector(                                         realGasType,realGasType.nc);
-
   // _____________________________________________
   //
   //             Variable Declarations
@@ -57,6 +49,12 @@ public
   output SI.SpecificEnthalpy NCVOut "Returned NCV";
 
 protected
+  // _____________________________________________
+  //
+  //        Constants and Hidden Parameters
+  // _____________________________________________
+
+  parameter Real[realGasType.nc] NCVm_vec=getRealGasNCVmVector(                                         realGasType,realGasType.nc);
   SI.MoleFraction[realGasType.nc] x=cat(1,x_in,{1-sum(x_in)}) "Molar composition of components";
 
 algorithm
@@ -70,7 +68,7 @@ algorithm
     NCVOut:=NCVIn;
   else
     //Search for component in NCVComponentValues and add it to total NCV weighted by mole fraction
-    NCVOut:=sum(x*NCVm_vec);
+    NCVOut:=(x*NCVm_vec);
   end if;
 
   annotation (Documentation(info="<html>

@@ -34,8 +34,8 @@ model TestRhoCalculationH2NG7
   Modelica.Units.SI.Temperature T;
   Modelica.Units.SI.Pressure p;
 
-  TransiEnt.Basics.Media.Gases.VLE_VDIWA_H2 H2;
-  TransiEnt.Basics.Media.Gases.VLE_VDIWA_NG7_H2_var NG7;
+  parameter TransiEnt.Basics.Media.Gases.VLE_VDIWA_H2 H2;
+  parameter TransiEnt.Basics.Media.Gases.VLE_VDIWA_NG7_H2_var NG7;
 
   parameter Modelica.Units.SI.Density rho_H2_ph=TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.density_phxi(
       H2,

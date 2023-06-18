@@ -59,7 +59,6 @@ model DHN_Substation "Substation for district hot water"
 
   TransiEnt.Producer.Heat.Heat2Heat.Substation_indirect_noStorage_L1 substation_indirect_noStorage_L1_1(
     T_start=T_start,
-    dT=dT,
     m_flow_min=m_flow_min) annotation (Placement(transformation(extent={{-14,6},{14,26}})));
 equation
 

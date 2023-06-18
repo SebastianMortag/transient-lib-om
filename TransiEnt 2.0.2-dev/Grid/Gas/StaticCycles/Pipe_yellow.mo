@@ -44,7 +44,7 @@ model Pipe_yellow " Pipe || yellow | yellow"
 
   final parameter SI.Pressure p_in(fixed=false) "Inlet pressure";
   final parameter SI.SpecificEnthalpy h_in(fixed=false) "Inlet specific enthalpy";
-  final parameter SI.MassFraction xi_in[medium.nc-1](fixed=false) "Inlet mass specific composition";
+  final parameter SI.MassFraction xi_in[medium.nc-1](each fixed=false) "Inlet mass specific composition";
 
   final parameter SI.MassFlowRate m_flow(fixed=false) "Mass flow rate";
   final parameter Real zeta_tot = if quadraticPressureLoss then Delta_p_nom/m_flow_nom^2 else 1.0*Delta_p_nom/m_flow_nom "Linear/quadratic pressure loss coefficient";

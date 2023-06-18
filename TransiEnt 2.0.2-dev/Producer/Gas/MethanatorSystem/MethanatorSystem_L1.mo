@@ -246,10 +246,10 @@ equation
   if not idx_CO2 == 0 then
     composition_out[idx_CO2]=m_flow_methanator_out_CO2/max(Modelica.Constants.eps,(m_flow_methanator_out-m_flow_methanator_out_H2O+m_flow_bypass));
   end if;
-  H_flow_in_NCV=gasPortIn.m_flow*sum(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_NCV=gasPortOut.m_flow*sum(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
-  H_flow_in_GCV=gasPortIn.m_flow*sum(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
-  H_flow_out_GCV=gasPortOut.m_flow*sum(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_flow_in_NCV=gasPortIn.m_flow*(NCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_NCV=gasPortOut.m_flow*(NCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
+  H_flow_in_GCV=gasPortIn.m_flow*(GCV*cat(1,gasIn.xi,{1-sum(gasIn.xi)}));
+  H_flow_out_GCV=gasPortOut.m_flow*(GCV*cat(1,gasOut.xi,{1-sum(gasOut.xi)}));
 
   eta_NCV=-H_flow_out_NCV/(max(Modelica.Constants.eps,H_flow_in_NCV));
   eta_GCV=-H_flow_out_GCV/(max(Modelica.Constants.eps,H_flow_in_GCV));

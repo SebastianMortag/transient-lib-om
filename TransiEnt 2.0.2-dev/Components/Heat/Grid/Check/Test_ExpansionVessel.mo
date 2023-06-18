@@ -40,7 +40,7 @@ model Test_ExpansionVessel
   ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlowVLE_L2_Simple pipeFlow_L2_Simple(
     h_nom={293457},
     h_start={293457},
-    p_start(displayUnit="bar") = {600000},
+    p_start(each displayUnit="bar") = {600000},
     Delta_p_nom(displayUnit="bar") = 50000,
     length=1000,
     p_nom={6e5},

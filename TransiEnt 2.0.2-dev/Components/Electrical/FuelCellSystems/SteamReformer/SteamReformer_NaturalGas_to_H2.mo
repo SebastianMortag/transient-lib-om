@@ -193,7 +193,7 @@ equation
 
       //Term for converting the new concentrations in a mass fraction, which is influencing TTLMedia
 
-      m_ges = sum(x_i*sg.M_i)+x_i[7]*sg.M_i[7];
+      m_ges = (x_i*sg.M_i)+x_i[7]*sg.M_i[7];
 
       xi_ch4 = max((x_i[1]*sg.M_i[1]/m_ges),eps);
 

@@ -44,9 +44,9 @@ model Mixer2 "Split || yellow | blue | yellow"
   final parameter SI.SpecificEnthalpy h_in2(fixed=false) "Inlet 2 specific enthalpy";
   final parameter SI.SpecificEnthalpy h_out(fixed=false) "Outlet specific enthalpy";
 
-  final parameter SI.MassFraction xi_in1[medium.nc-1]( fixed=false) "Inlet 1 mass specific composition";
-  final parameter SI.MassFraction xi_in2[medium.nc-1]( fixed=false) "Inlet 2 mass specific composition";
-  final parameter SI.MassFraction xi_out[medium.nc-1]( fixed=false) "Outlet mass specific composition";
+  final parameter SI.MassFraction xi_in1[medium.nc-1](each fixed=false) "Inlet 1 mass specific composition";
+  final parameter SI.MassFraction xi_in2[medium.nc-1](each fixed=false) "Inlet 2 mass specific composition";
+  final parameter SI.MassFraction xi_out[medium.nc-1](each fixed=false) "Outlet mass specific composition";
 
   final parameter SI.Pressure p(fixed=false) "Mixer pressure";
 

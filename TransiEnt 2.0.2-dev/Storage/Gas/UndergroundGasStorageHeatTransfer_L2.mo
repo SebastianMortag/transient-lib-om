@@ -111,7 +111,7 @@ protected
                                                                                     annotation (Placement(transformation(extent={{70,-10},{50,10}})));
   ClaRa.Basics.ControlVolumes.SolidVolumes.CylindricalThinWall_L4 cylindricalWall(
     redeclare model Material = Material,
-    T_start(displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
+    T_start(each displayUnit="degC") = T_wall_start*ones(cylindricalWall.N_ax),
     stateLocation=stateLocation,
     N_ax=1,
     diameter_o=storage.diameter + thickness_wall,

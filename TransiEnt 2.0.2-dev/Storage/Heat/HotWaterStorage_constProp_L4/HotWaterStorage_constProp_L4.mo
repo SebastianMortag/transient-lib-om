@@ -179,7 +179,7 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
     each medium=medium,
     Q_flow_n=Q_flow_n_elHeater,
     each eta=eta_elHeater,
-    useHeatPort=true,
+    each useHeatPort=true,
     redeclare model ProducerCosts = ProducerCosts_elHeater,
     redeclare connector PowerPortModel = ElectricPowerPort,
     redeclare model PowerBoundaryModel = PowerBoundary) if useElHeater annotation (Placement(transformation(

@@ -124,16 +124,16 @@ model TestGasStorageVesselHeatTransfer_L2
                                                                                             // assumed to be spherical --> d_i=0.5232
                                                                                           // assumed to be spherical --> d_i=0.2954
 
-  Base.ConstantHTOuterTemperature_L2 ht_pipe_54[2](alpha_nom=8, A_heat=0.68) annotation (Placement(transformation(
+  Base.ConstantHTOuterTemperature_L2 ht_pipe_54[2](each alpha_nom=8, each A_heat=0.68) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-56,50}))); //area like given in the paper
-  Base.ConstantHTOuterTemperature_L2 ht_pipe_32[2](alpha_nom=8, A_heat=0.045) annotation (Placement(transformation(
+  Base.ConstantHTOuterTemperature_L2 ht_pipe_32[2](each alpha_nom=8, each A_heat=0.045) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={56,50}))); //area like given in the paper
 
-  Modelica.Blocks.Sources.Constant T_amb[2](k=300.15) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.Constant T_amb[2](each k=300.15) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={0,86})));

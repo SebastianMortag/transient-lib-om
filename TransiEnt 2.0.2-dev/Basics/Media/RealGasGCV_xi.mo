@@ -57,7 +57,7 @@ equation
     GCV= GCVIn;
   else
     //Search for component in GCVComponentValues and add it to total GCV = sum(xi_i * GCV_i) and from (MJ/kg) to (J/kg) GCV
-    GCV=sum(xi*GCV_vec);
+    GCV=(xi*GCV_vec);
   end if;
 
   annotation (Documentation(info="<html>
