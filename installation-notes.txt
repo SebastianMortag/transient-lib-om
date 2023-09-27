@@ -1,0 +1,3 @@
+In order to open the transient lib with the open modelica compiler, use OpenModelica v.1.22-dev or later versions.  
+Requires various fixes like: https://github.com/OpenModelica/OpenModelica/issues/11068  
+Check https://libraries.openmodelica.org/branches/master/TransiEnt/TransiEnt.html for current test results
